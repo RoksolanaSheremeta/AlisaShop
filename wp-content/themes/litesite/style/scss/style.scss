@@ -1,0 +1,16 @@
+@import 'base/color';
+@import 'base/reset';
+@import 'base/fonts';
+
+@import 'components/buttons';
+
+@import 'layout/main_style';
+@import 'layout/header';
+@import 'layout/footer';
+
+@import 'pages/front-page';
+
+
+.cbalink{
+	display: none;
+}

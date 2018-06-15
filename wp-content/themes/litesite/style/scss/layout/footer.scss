@@ -1,0 +1,44 @@
+footer{
+	background-color: #66426d;
+	padding: 30px 0 25px 0; 
+
+	margin-top: 70px;
+	p{
+		color: rgba(249, 249, 249, 0.7);
+		margin-bottom: 20px;		
+	}
+	a{
+		color: rgba(249, 249, 249, 0.7);
+		margin-bottom: 20px;
+		transition: all 0.3s ease;
+		&:hover{
+			color: #b9b1b9;
+		}
+	}
+	.footer_title{
+		color: #fafafa;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 25px;
+		text-transform: uppercase;
+	}
+	.soc_icon_bloc{
+		img{
+			margin-left: 16px;
+		}
+		a{
+			&:first-child img{
+				margin-left: 0 !important;
+			}
+		}	
+	}
+	.copywriting{
+		margin-top: 70px;
+		opacity: 0.7;
+		color: #f9f9f9;
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 21px;
+
+	}
+}
