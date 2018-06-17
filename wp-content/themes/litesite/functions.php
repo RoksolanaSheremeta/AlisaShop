@@ -68,9 +68,8 @@ function litesite_scripts() {
     //wp_enqueue_style( $handle, $src, $deps, $ver, $media );
     wp_enqueue_style( 'litesite-main', get_stylesheet_uri() );
     wp_enqueue_style('bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', '1.0');
-    //wp_enqueue_style('jquery-modal', '//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css', '1.0');
-    //wp_enqueue_style('sumoselect', '//cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/sumoselect.min.css', '1.0');
-    //wp_enqueue_style( 'swiper', get_template_directory_uri() . '/style/css/swiper.min.css', '1.0' );
+    wp_enqueue_style( 'swiper', get_template_directory_uri() . '/style/css/library/swiper.min.css', '1.0' );
+    wp_enqueue_style('sumoselect', '//cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/sumoselect.min.css', '1.0');
     wp_enqueue_style( 'litesite-navigationCss', get_template_directory_uri() . '/style/css/style.css', '1.0' );
     // Fonts
     //wp_enqueue_style( 'Alegreya+Sans', 'http://fonts.googleapis.com/css?family=Alegreya+Sans:300,300italic,400,400italic,500,500italic,700,700italic,900,900italic', array(), null );
@@ -84,10 +83,11 @@ function litesite_scripts() {
 
     //jquery-modal
     //wp_enqueue_script('modal', '//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js', 'jquery', '1.0.1', true );
-    //wp_enqueue_script('sumoselect', '//cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/jquery.sumoselect.min.js', 'sumoselect', '1.0.1', true );
+    wp_enqueue_script('sumoselect', '//cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/jquery.sumoselect.min.js', 'sumoselect', '1.0.1', true );
     //wp_enqueue_script('zoom', 'https://cdn.rawgit.com/jackmoore/zoom/master/jquery.zoom.min.js', 'jquery', '1.0.1', true );
     
     wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'popper', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', 'popper', '1.0.0', true );
     wp_enqueue_script( 'bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', 'bootstrap', '1.0.0', true );
     //wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.min.js', array(), '1.0.0', true );
     //wp_enqueue_script( 'google map', '//maps.googleapis.com/maps/api/js?key=AIzaSyAfdgfBPYr0FiZt5LnUn817xvn8ymOYcyg', 'map', '1.0.0', true );
@@ -223,24 +223,14 @@ add_action( 'after_setup_theme', 'my_custom_woocommerce_theme_support' );
 /*--------------------------------------------------------------------------------------------------*/
 /*---------------------------------------start options_paget ---------------------------------------*/
 /*--------------------------------------------------------------------------------------------------*/
-//register acf_options
+//options page ACF
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page(array(
-        'page_title'    => 'Theme General Settings',
-        'menu_title'    => 'Theme Settings',
+        'page_title'    => 'Загальні дані',
+        'menu_title'    => 'Загальні дані',
         'menu_slug'     => 'theme-general-settings',
         'capability'    => 'edit_posts',
         'redirect'      => false
-    ));
-    acf_add_options_sub_page(array(
-        'page_title'    => 'Theme Header Settings',
-        'menu_title'    => 'Header',
-        'parent_slug'   => 'theme-general-settings',
-    ));
-    acf_add_options_sub_page(array(
-        'page_title'    => 'Theme Footer Settings',
-        'menu_title'    => 'Footer',
-        'parent_slug'   => 'theme-general-settings',
     ));
 }
 

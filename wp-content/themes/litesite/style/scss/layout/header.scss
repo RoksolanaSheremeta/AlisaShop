@@ -1,0 +1,281 @@
+header{
+	.top_header_block{
+		border-bottom: 1px solid #cccccc;
+		padding: 15px 0;
+		p, p a{
+			color: #888888;
+
+			font-size: 12px;
+			font-weight: 400;
+			transition: all 0.3s ease;
+			&:hover{
+				color: #4e4b4e;
+			}
+		}
+		.sumo_lang_choice_1{
+			margin-left: 50px;
+			.CaptionCont{
+				border: none;
+				background: none;
+				color: #888888;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				outline: none;
+				border: none;
+				box-shadow: none;
+				span:after{
+					background-image: url(../../images/arrow-down-sign-to-navigate.svg);
+					background-size: cover;
+					display: inline-block;
+					width: 12px;
+					height: 12px;
+					content: "";
+					margin-left: 15px;
+					margin-bottom: -2px;
+				}
+				&:hover{
+					color: #4e4b4e;
+				}
+			}
+			.optWrapper{
+				width: auto;
+				padding-right: 17px;
+			}
+			ul{
+				border: none;
+				background: none;
+				left: 7px !important;
+				li label{
+					color: #888888;
+					font-size: 14px;
+					font-weight: 400;
+				}
+			}
+			&>.CaptionCont>label>i{
+				background-image: none;
+			}
+		}
+		.exit_registr{
+			justify-content: flex-end;
+			align-items: center;
+			img{
+				margin-right: 10px;
+			}
+			.registr{
+				margin-left: 10px;
+				&:before{
+					content: "/";
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+	.main_header{
+		.logo{
+			margin: 35px 0;
+		}
+		.phone_info{
+			margin-top: 5px;
+			margin-bottom: 35px;
+			align-items: center;
+			display: flex;
+			a{
+				margin: 0px 15px;
+				color: #777;
+				font-size: 18px;
+				font-weight: 700;
+				line-height: 25px;
+				transition: all 0.3s ease;
+				vertical-align: middle;
+				align-items: center;
+				display: flex;
+				&:hover{
+					color: #4e4b4e;
+				}
+				&:first-child{
+					margin-left: -8px;
+					&:before{
+						background-image: url(../../images/phone.svg);
+						background-size: 40px 42px;
+						display: inline-block;
+						width: 36px;
+						height: 41px;
+						content: "";
+						margin-right: 15px;
+					}
+				}
+			}
+		}
+		.search_block{
+			.searchinput{
+				width: 435px;
+				border-radius: 3px;
+				border: 1px solid #cccccc;
+				padding: 10px;
+				outline: none;
+			}
+			.submit{
+				margin-left: 10px;
+				border-radius: 3px;
+				background-color: #66426d;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: 20px;
+				width: 65px;
+				height: 45px;
+				display: inline-block;
+				background-image: url(../../images/musica-searcher.svg);
+				padding: 15px;
+				border: none;
+				cursor: pointer;
+				&:hover{
+					background-color: #5c3b63;
+				}
+			}	
+		}
+		.shopping-cart{
+			align-items: center;
+			display: flex;
+			.shopping-cart_block{
+				position: relative;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: 37px;
+				width: 55px;
+				height: 55px;
+				display: inline-block;
+				background-image: url(../../images/shopping-cart.svg);
+				.header-cart-count{   
+					top: -7px;
+					position: absolute;
+					right: -11px;
+					background-color: #66426d;
+					width: 24px;
+					height: 24px;
+					text-align: center;
+					border-radius: 50%;
+					color: #fff;
+					font-size: 12px;
+					font-weight: 700;
+					text-transform: uppercase;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				a{
+					@include a-all-block;
+				}
+			}
+			.widget_shopping_cart_content{
+				display: none;
+			}
+		}
+	}
+}
+.menu{
+	background-color: #66426d;
+	ul{
+		li{
+			display: inline-block;
+			margin: 20px 50px 20px 0;
+			a{
+				color: #ffffff;
+				font-size: 14px;
+				font-weight: 700;
+				text-transform: uppercase;
+			}
+			&:hover{
+				color: #e8e4e4;
+			}
+		}
+	}
+	.mobile-nav{
+		display: none;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		right: 5%;
+		line-height: 12px;
+		text-align: center;
+		margin-top: 22px;
+		margin-bottom: 22px;
+		transition: all 1000ms;
+		-webkit-transition: all 1000ms;
+		-moz-transition: all 1000ms;
+		-o-transition: all 1000ms;
+		-ms-transition: all 1000ms;
+		transition-delay: 500ms;
+		span{
+			margin-top: -1px;
+			height: 2px;
+			width: 100%;
+			background: #000;
+			display: inline-block;
+			background-color: #000;
+			&:after, &:before{
+				height: 2px;
+				width: 100%;
+				background: #000;
+				content: '';
+				position: absolute;
+				left: 0;
+				transition: all 300ms;
+				-webkit-transition: all 300ms;
+				-moz-transition: all 300ms;
+				-o-transition: all 300ms;
+				-ms-transition: all 300ms;
+				transition-delay: 0ms;
+				background-color: #000;
+			}
+			&:after{
+				top: 1px;
+			}
+			&:before{
+				bottom: 0;
+			}
+		}
+	}
+	#close-nav {
+		display: none;
+		transition: all 300ms;
+		-webkit-transition: all 300ms;
+		-moz-transition: all 300ms;
+		-o-transition: all 300ms;
+		-ms-transition: all 300ms;
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		&:after, &:before {
+			width: 100%;
+			height: 1px;
+			background: #fff;
+			content: '';
+			position: absolute;
+			bottom: 50%;
+		}
+		&:before {
+			transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			-o-transform: rotate(-45deg);
+			-webkit-transform: rotate(-45deg);
+			-ms-transform: rotate(-45deg);
+		}
+		&:after {
+			transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			-o-transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+		}
+		&:hover {
+			cursor: pointer;
+			transform: rotate(-180deg);
+			-moz-transform: rotate(-180deg);
+			-o-transform: rotate(-180deg);
+			-webkit-transform: rotate(-180deg);
+			-ms-transform: rotate(-180deg);
+		}
+	}
+}

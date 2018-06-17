@@ -1,0 +1,30 @@
+@mixin bgi {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+@mixin bgc {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+@mixin fullAfter{
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+@mixin a-all-block{
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+// @include fullAfter;

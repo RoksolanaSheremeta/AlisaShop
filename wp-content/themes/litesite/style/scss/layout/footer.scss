@@ -1,16 +1,12 @@
 footer{
 	background-color: #66426d;
 	padding: 30px 0 25px 0; 
-
 	margin-top: 70px;
-	p{
-		color: rgba(249, 249, 249, 0.7);
-		margin-bottom: 20px;		
-	}
 	a{
 		color: rgba(249, 249, 249, 0.7);
 		margin-bottom: 20px;
 		transition: all 0.3s ease;
+		display: block;
 		&:hover{
 			color: #b9b1b9;
 		}
@@ -21,16 +17,40 @@ footer{
 		font-weight: 700;
 		line-height: 25px;
 		text-transform: uppercase;
+		margin-bottom: 20px;
 	}
 	.soc_icon_bloc{
-		img{
-			margin-left: 16px;
-		}
+		display: flex;
+		justify-content: space-between;
+		max-width: 250px;
+		margin: 0 auto;
 		a{
-			&:first-child img{
-				margin-left: 0 !important;
-			}
-		}	
+			@include bgc;
+			width: 40px;
+			height: 40px;
+			display: inline-block;
+		}
+		.footer-vk{
+			background-image: url('../../images/fa-vk.svg');
+		}
+		.footer-facebook{
+			background-image: url('../../images/fa-facebook.svg');
+		}
+		.footer-twitter{
+			background-image: url('../../images/fa-twitter.svg');
+		}
+		.footer-youtube{
+			background-image: url('../../images/fa-youtube.svg');
+		}
+		.footer-google{
+			background-image: url('../../images/fa-google-plus.svg');
+		}
+		.footer-pinterest{
+			background-image: url('../../images/fa-pinterest.svg');
+		}
+		.footer-instagram{
+			background-image: url('../../images/fa-instagram.svg');
+		}
 	}
 	.copywriting{
 		margin-top: 70px;
@@ -39,6 +59,20 @@ footer{
 		font-size: 13px;
 		font-weight: 400;
 		line-height: 21px;
+	}
+}
 
+
+
+
+@media only screen and (max-width: 1200px){
+	footer{
+		[class*='col-']{
+			text-align: center;
+			margin-top: 20px;
+		}
+	}
+	.copywriting{
+		text-align: center;
 	}
 }

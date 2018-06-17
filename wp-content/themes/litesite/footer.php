@@ -1,32 +1,55 @@
+
 	<footer>
 		<div class="container">
 			<div class="row">
-				<div class="col-xl-3 col-lg-4">
-					<p class="footer_title">Alice Shop</p>
-					<p><a href="#">Про нас</a></p>
-					<p><a href="#">Питання  і відповіді</a></p>
-					<p><a href="#">Співпраця</a></p>
-					<p><a href="#">Контакти</a></p>
+				<div class="col-xl-3 col-lg-6">
+					<p class="footer_title"><?php the_field('f_shop_title', 'options'); ?></p>
+					<?php 
+					$posts = get_field('f_shop_pages', 'options');
+					if( $posts ): ?>
+					    <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
+					        <?php setup_postdata($post); ?>
+					        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					    <?php endforeach; ?>
+					    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+					<?php endif; ?>
 				</div>
-				<div class="col-xl-3 col-lg-4">
-					<p class="footer_title">Покупцям</p>
-					<p><a href="#">Акаунт</a></p>
-					<p><a href="#">Доставка і оплата</a></p>
-					<p><a href="#">Повернення і обмін</a></p>
-					<p><a href="#">Відгуки</a></p>
+				<div class="col-xl-3 col-lg-6">
+					<p class="footer_title"><?php the_field('f_customers_title', 'options'); ?></p>
+					<?php 
+					$posts = get_field('f_customers_pages', 'options');
+					if( $posts ): ?>
+					    <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
+					        <?php setup_postdata($post); ?>
+					        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					    <?php endforeach; ?>
+					    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+					<?php endif; ?>
 				</div>
-				<div class="col-xl-3 col-lg-4">
-					<p class="footer_title">Контакти</p>
-					<p><a href="tel:+380630891314">+38 063 089-13-14</a></p>
-					<p><a href="tel:+380670891314">+38 067 089-13-14</a></p>
-					<p><a href="tel:+380630891314">+38 063 089-13-14</a></p>
-					<p><a href="#"><p>aliceshop@gmail.com</p></a></p>
+				<div class="col-xl-3 col-lg-6">
+					<p class="footer_title"><?php the_field('f_contacts_title', 'options'); ?></p>
+					<?php 
+					if( have_rows('f_contacts', 'options') ):
+						while ( have_rows('f_contacts' ,'options') ) : the_row();?>
+							<a href="<?php the_sub_field('f_phones_or_emails'); ?><?php the_sub_field('f_phone_or_email_link'); ?>"><?php the_sub_field('f_phone_or_email'); ?></a>
+							<?php
+						endwhile;
+					endif;
+					?>
 				</div>
-				<div class="col-xl-3 col-lg-12 soc_icon_bloc">
-					<a href="#"><img src="img/vk.svg" alt="vk"></a>
-					<a href="#"><img src="img/facebook.svg" alt="facebook"></a>	
-					<a href="#"><img src="img/instagram.svg" alt="instagram"></a>	
-					<a href="#"><img src="img/pinterest.svg" alt="pinterest"></a>		
+				<div class="col-xl-3 col-lg-6">
+					<div class="soc_icon_bloc">
+						<?php 
+						if( have_rows('soc_icons', 'options') ):
+							while ( have_rows('soc_icons' ,'options') ) : the_row(); 
+								$link = get_sub_field('soc_icon_link');
+								$icon = get_sub_field_object('soc_icon'); ?>
+								<a href="<?php echo $link; ?>" class="<?php echo $icon['value']; ?>" target="_blank"></a>
+								<?php
+							endwhile;
+						endif;
+						?>
+					</div>
 				</div>						
 			</div>
 		</div>
