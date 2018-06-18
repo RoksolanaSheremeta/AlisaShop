@@ -2,15 +2,17 @@ header{
 	.top_header_block{
 		border-bottom: 1px solid #cccccc;
 		padding: 15px 0;
-		p, p a{
+		a, span{
 			color: #888888;
-
 			font-size: 12px;
 			font-weight: 400;
 			transition: all 0.3s ease;
 			&:hover{
 				color: #4e4b4e;
 			}
+		}
+		.vertical_m{
+			align-items: center;
 		}
 		.sumo_lang_choice_1{
 			margin-left: 50px;
@@ -58,14 +60,18 @@ header{
 		.exit_registr{
 			justify-content: flex-end;
 			align-items: center;
-			img{
-				margin-right: 10px;
-			}
-			.registr{
-				margin-left: 10px;
-				&:before{
-					content: "/";
-					margin-right: 10px;
+			a{
+				&:first-child{
+					&:before{
+						background-image: url(../../images/people.svg);
+						background-size: 18px 31px;
+						display: inline-block;
+						width: 18px;
+						height: 25px;
+						content: "";
+						margin-right: 15px;
+						margin-bottom: -4px;
+					}
 				}
 			}
 		}
@@ -113,6 +119,7 @@ header{
 				border: 1px solid #cccccc;
 				padding: 10px;
 				outline: none;
+				max-width: calc(100% - 100px);
 			}
 			.submit{
 				margin-left: 10px;
@@ -277,5 +284,114 @@ header{
 			-webkit-transform: rotate(-180deg);
 			-ms-transform: rotate(-180deg);
 		}
+	}
+}
+@media only screen and (max-width: 1200px){
+	header .main_header .logo{
+		text-align: center;
+	}
+	div.col-xl-1.shopping-cart{
+		justify-content: flex-end;
+		margin-top: -27%;
+	}
+	header .main_header .search_block .searchinput{
+		min-width: 60%;
+		margin-bottom: 20px;
+		margin-right: 15px;
+	}
+	.search_block{
+		text-align: center;
+	}
+	.menu{
+		height: 61px;
+		.mobile-nav{
+			display: block !important;
+			&:hover {
+				cursor: pointer;
+				transform: rotate(90deg);
+				-moz-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				-webkit-transform: rotate(90deg);
+				-ms-transform: rotate(90deg);
+				transition: all 500ms;
+				-webkit-transition: all 500ms;
+				-moz-transition: all 500ms;
+				-o-transition: all 500ms;
+				-ms-transition: all 500ms;
+				transition-delay: 0ms;
+				span:after, span:before{
+					left: 8px;
+					transition: all 800ms;
+					-webkit-transition: all 800ms;
+					-moz-transition: all 800ms;
+					-o-transition: all 800ms;
+					-ms-transition: all 800ms;
+					transition-delay: 500ms;
+				}
+			}
+		}
+		#menu{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			left: 0;
+			top: -100%;
+			opacity: 0;
+			background: rgba(102, 66, 109, 0.8);
+			transition: all 800ms;
+			-webkit-transition: all 800ms;
+			-moz-transition: all 800ms;
+			-o-transition: all 800ms;
+			-ms-transition: all 800ms;
+			z-index: 9999999;
+			ul{
+				padding: 0;
+				margin-top: 70px;
+				li{
+					display: block;
+					line-height: 2;
+					margin: 0;
+					text-align: center;
+					color: #fff;
+					font-size: 16px;
+				}
+			}
+			&.active{
+				top: 0;
+				opacity: 1;
+			}
+			#close-nav{
+				display: block;
+			}
+		}
+	}
+}
+@media only screen and (max-width : 992px){
+	header .top_header_block .vertical_m{
+		justify-content: center;
+	}
+}
+@media only screen and (max-width : 767px){
+	span{
+		margin-left: -25%;
+	}
+	div.phone_info.blocl_flex{
+		display: none;
+	}
+	div.col-xl-1.shopping-cart{
+		margin-top: -63%;
+	}
+	header .main_header .search_block .searchinput{
+		min-width: 60%;
+		margin-bottom: 20px;
+		margin-right: 15px;
+	}
+}
+@media only screen and (max-width : 575px){
+	div.col-sm-6.vertical_m.blocl_flex{
+		justify-content: center;
+	}
+	div.col-sm-6.exit_registr.blocl_flex{
+		justify-content: center;
 	}
 }
