@@ -101,29 +101,26 @@
 	<section class="menu">
 		<div class="container">
 			<div class="mobile-nav"><span></span></div>
-			<div id="menu">
-				<!-- navigation START here -->
+			<!-- navigation START here -->
+			<?php
+				if(has_nav_menu('header-menu')){
+					wp_nav_menu(array(
+						'theme_location'  => 'header-menu',
+						'container'       => 'div',
+						'container_id'    => 'menu',
+						'echo'            => true,
+						'fallback_cb'     => 'wp_page_menu'
+						 ));
+				}else {
+				?>
+			        <div class="nav" id="menu">
+			            <ul>
+			                <?php wp_list_pages('title_li='); ?>
+			            </ul>
+			        </div>
 				<?php
-					if(has_nav_menu('header-menu')){
-						wp_nav_menu(array(
-							'theme_location'  => 'header-menu',
-							'container'       => 'div',
-							'container_class' => 'nav',
-							'container_id'    => 'menu',
-							'echo'            => true,
-							'fallback_cb'     => 'wp_page_menu'
-							 ));
-					}else {
-					?>
-				        <div class="nav" id="menu">
-				            <ul>
-				                <?php wp_list_pages('title_li='); ?>
-				            </ul>
-				        </div>
-					<?php
-					}
-					?>
-				<!-- navigation Ends here -->  
-			</div>
+				}
+				?>
+			<!-- navigation Ends here -->  
 		</div>
 	</section>

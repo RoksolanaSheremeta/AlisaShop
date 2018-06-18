@@ -14,7 +14,7 @@ header{
 		.vertical_m{
 			align-items: center;
 		}
-		.sumo_lang_choice_1{
+		.SumoSelect{
 			margin-left: 50px;
 			.CaptionCont{
 				border: none;
@@ -179,7 +179,7 @@ header{
 		}
 	}
 }
-.menu{
+section.menu{
 	background-color: #66426d;
 	ul{
 		li{
@@ -302,7 +302,7 @@ header{
 	.search_block{
 		text-align: center;
 	}
-	.menu{
+	section.menu{
 		height: 61px;
 		.mobile-nav{
 			display: block !important;
@@ -368,12 +368,14 @@ header{
 }
 @media only screen and (max-width : 992px){
 	header .top_header_block .vertical_m{
-		justify-content: center;
+		justify-content: space-between;
+	}
+	header .top_header_block .SumoSelect{
+		margin-left: 0;
 	}
 }
 @media only screen and (max-width : 767px){
 	span{
-		margin-left: -25%;
 	}
 	div.phone_info.blocl_flex{
 		display: none;
@@ -389,9 +391,15 @@ header{
 }
 @media only screen and (max-width : 575px){
 	div.col-sm-6.vertical_m.blocl_flex{
-		justify-content: center;
+		justify-content: space-around;
 	}
 	div.col-sm-6.exit_registr.blocl_flex{
 		justify-content: center;
+	}
+	header .top_header_block .SumoSelect{
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+		padding-left: 32px;
 	}
 }
