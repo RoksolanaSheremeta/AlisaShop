@@ -1,3 +1,143 @@
+.category_sitebar{
+	margin: 30px 15px;
+	border: 1px solid #cccccc;
+	padding: 0 0;
+	.title{
+		color: #777777;
+
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 25px;
+		margin: 20px 25px;
+		img{
+			display: none;
+		}
+	}
+	li{
+		position: relative;
+		padding: 0 25px;
+		.wrap{
+			padding: 15px 0;
+			border-bottom: 1px solid #cccccc;
+			position: relative;
+			.badge{
+				position: absolute;
+				right: 0;
+				bottom: 25px;
+			}
+			a{
+
+			}
+		}
+		&:last-child{
+			.wrap{
+				border-bottom: none;
+			}
+		}
+		&:hover{
+			cursor: pointer;
+		}
+		&:hover, &.active{
+			color: #fff;
+			background-color: #66426d;
+			a{
+				color: #fff;
+			}
+			.wrap{
+				border-bottom: none;
+			}
+		}
+		a{
+			margin-left: 15px;
+
+		}
+	}
+}
+.category_description{
+	margin: 30px -2px;
+	max-width: calc(74% - 30px);
+	box-shadow: 0 1px 5px -1px rgba(0, 0, 0, 0.14);
+	.swiper-slide{
+		margin-bottom: 60px;
+	}
+	.swiper-pagination_h{
+		.swiper-pagination-bullet {
+			width: 14px;
+			height: 14px;
+			&.swiper-pagination-bullet-active {
+				opacity: 1;
+				background: #66426d;
+			}
+		}	
+	}
+	img{
+		width: 100%;
+		margin: 70px 0;
+	}
+	.title_description{
+
+		text-align: center;
+		.title{
+			color: #66426d;
+			font-family: Constantia;
+			font-size: 30px;
+			font-weight: 700;
+			line-height: 30px;
+			text-align: center;
+		}
+		.description{
+			color: #777777;
+			font-size: 18px;
+			margin-left: 30px;
+			margin-top: 20px;
+			text-align: center;
+		}
+		.btn{
+			a{
+				margin-top: 40px;
+				width: 170px;
+				height: 50px;
+				box-shadow: rgba(0, 0, 0, 0.91);
+				border-radius: 5px;
+				background-color: #66426d;
+				color: #ffffff;
+				font-size: 18px;
+				font-weight: 500;
+				line-height: 27px;
+				display: inline-block;
+				padding-top: 10px;
+				&:hover{
+					background-color: #5f355f;
+				}
+			}
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .posts_quality{
 	background-image: url("../../images/wave.png");
 	background-size: cover;
@@ -104,4 +244,15 @@
 			margin-top: 30px;
 		}
 	}	
+}
+@media only screen and (max-width : 425px){
+	.posts_block .post_intro_row{
+		flex-wrap: wrap;
+		img{
+			width: 100%;
+		}
+		.wrap{
+			width: 100%;
+		}
+	}
 }
