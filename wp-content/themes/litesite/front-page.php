@@ -17,102 +17,111 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-3 category_sitebar" id="h_category">
-					<div class="title">Категорії<img src="img/badge.png"></div>
-					<ul>
-						<li>
-							<div class="wrap">
-								<img src="img/beads.svg" alt="beads">
-								<a href="#">Бісер</a>
-								<a href="#" class="badge"><img src="img/badge.png"></a>
-							</div>
-						</li>
-						<li>
-							<div class="wrap">
-								<img src="img/necklace_category.png" alt="necklace_category">
-								<a href="#">Намистини</a>
-								<a href="#" class="badge"><img src="img/badge.png"></a>
-							</div>
-						</li>
-						<li class="active">
-							<div class="wrap">
-								<img src="img/tools.png" alt="tools">
-								<a href="#">Інструменти</a>
-								<a href="#" class="badge"><img src="img/badge.png"></a>
-							</div>
-						</li>
-						<li>
-							<div class="wrap">
-								<img src="img/pendants.png" alt="pendants">
-								<a href="#">Підвіски</a>
-								<a href="#" class="badge"><img src="img/badge.png"></a>
-							</div>	
-						</li>
-						<li>
-							<div class="wrap">
-								<img src="img/materials.png" alt="materials">
-								<a href="#">Матеріали</a>
-								<a href="#" class="badge"><img src="img/badge.png"></a>
-						</li>
-						<li>
-							<div class="wrap">
-								<img src="img/trading .png" alt="trading ">
-								<a href="#">Торгове обладнання</a>
-								<a href="#" class="badge"><img src="img/badge.png"></a>
-							</div>
-						</li>
-						<li>
-							<div class="wrap">
-								<img src="img/jewelry.png" alt="jewelry">
-								<a href="#">Прикраси</a>
-								<a href="#" class="badge"><img src="img/badge.png"></a>
-							</div>	
-						</li>
-						<li>
-							<div class="wrap">
-								<img src="img/packaging.png" alt="packaging">
-								<a href="#">Упаковка</a>
-								<a href="#" class="badge"><img src="img/badge.png"></a>
-							</div>	
-						</li>
-						<li>
-							<div class="wrap">
-								<img src="img/furniture.png" alt="furniture">
-								<a href="#">Фурнітура</a>
-								<a href="#" class="badge"><img src="img/badge.png"></a>
-							</div>
-						</li>
+					<div class="title">Категорії</div>
+					<ul class = "block-category-ul">
+					<?php
+						$taxonomy     = 'product_cat';
+						$orderby      = 'name';  
+						$show_count   = 0;      // 1 for yes, 0 for no
+						$pad_counts   = 0;      // 1 for yes, 0 for no
+						$hierarchical = 1;      // 1 for yes, 0 for no  
+						$title        = '';  
+						$empty        = 0;
+
+						$args = array(
+							'taxonomy'     => $taxonomy,
+							'orderby'      => $orderby,
+							'show_count'   => $show_count,
+							'pad_counts'   => $pad_counts,
+							'hierarchical' => $hierarchical,
+							'title_li'     => $title,
+							'hide_empty'   => $empty
+						);
+						$all_categories = get_categories( $args );
+						foreach ($all_categories as $cat) 
+						{
+							if($cat->category_parent == 0) 
+							{
+								echo '<li class = "block-category-li ' . $cat->slug . '">';
+								$category_id = $cat->term_id;   
+								$thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true ); 
+								$image = wp_get_attachment_url( $thumbnail_id ); 
+								?>
+									<div class="wrap">
+										<?php
+										echo "<img src='{$image}' />";
+										echo '<a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a>';
+										?>
+									</div>
+								<?php
+								//echo '<br /><a' . ' class="' . $cat->slug . '"' . ' href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a>';
+								//echo "<img src='{$image}' alt='' width='20' height='20' />";
+
+								$args2 = array(
+									'taxonomy'     => $taxonomy,
+									'child_of'     => 0,
+									'parent'       => $category_id,
+									'orderby'      => $orderby,
+									'show_count'   => $show_count,
+									'pad_counts'   => $pad_counts,
+									'hierarchical' => $hierarchical,
+									'title_li'     => $title,
+									'hide_empty'   => $empty
+								);
+								$sub_cats = get_categories( $args2 );
+								if($sub_cats) 
+								{
+									echo '<div class="sub-category-block"><div class="sub-category-block_wrap"><ul class = "block-sub-category-ul">';
+									foreach($sub_cats as $sub_category) 
+									{
+										$thumbnail_id = get_woocommerce_term_meta( $sub_category->term_id, 'thumbnail_id', true ); 
+										$image = wp_get_attachment_url( $thumbnail_id ); 
+										//echo  $sub_category->name ;
+										echo '<li  class = "block-sub-category-li ' . $cat->slug . '-' . $sub_category->slug . '">';
+													echo "<img src='{$image}' alt='' width='20' height='20' />";
+													echo '<a href="'. get_term_link($sub_category->slug, 'product_cat') .'">'. $sub_category->name .'</a>';
+													?>
+												</li>
+										<?php
+
+										//echo '<a' . ' class="' . $cat->slug . '-' . $sub_category->slug . '"' . ' href="'. get_term_link($sub_category->slug, 'product_cat') .'">'. $sub_category->name .'</a>';
+										//echo "<img src='{$image}' alt='' width='20' height='20' />";
+									} 
+									echo '</ul></div></div>';
+								}
+								echo '</li>';
+					    	}       
+						}
+					?>
 					</ul>
 				</div>
 				<div class="col-xl-9 col-lg-12 category_description">
 					<div class="swiper-container swiper-container_h">
 						<div class="swiper-wrapper">
-			<?php 
-			if( have_rows('fp_slider') ):
-				while ( have_rows('fp_slider') ) : the_row();?>
+							<?php 
+							if( have_rows('fp_slider') ):
+								while ( have_rows('fp_slider') ) : the_row();?>
 
-					<div class="swiper-slide post_intro post_intro_row block_flex">
-						<div class="col-xl-6">
-							<img src="<?php the_sub_field('fp_slider_img'); ?>" alt="product_desc">
-						</div>
-						<div class="col-xl-6 wrap">
-							<div class="wrap">
-								<div class="title_description">
-									<div class="title"><?php the_sub_field('fp_slider_title'); ?></div>
-									<div class="description"><?php the_sub_field('fp_slider_description'); ?></div>
-									<div class="btn">
-										<a href="<?php the_sub_field('fp_link'); ?>">Більше</a>
+									<div class="swiper-slide post_intro post_intro_row block_flex">
+										<div class="col-xl-6">
+											<img src="<?php the_sub_field('fp_slider_img'); ?>" alt="product_desc">
+										</div>
+										<div class="col-xl-6 wrap block_flex">
+											<div class="wrap">
+												<div class="title_description">
+													<div class="title"><?php the_sub_field('fp_slider_title'); ?></div>
+													<div class="description"><?php the_sub_field('fp_slider_description'); ?></div>
+													<div class="btn">
+														<a href="<?php the_sub_field('fp_link'); ?>"><?php the_sub_field('fp_btn'); ?></a>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<?php
-				endwhile;
-			endif;
-			?>
-								
-						
-							
+									<?php
+								endwhile;
+							endif;
+							?>
 						</div>
 						<!-- Add Pagination -->
 						<div class="swiper-pagination swiper-pagination_h"></div>
@@ -122,33 +131,7 @@
 		</div>
 	</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="posts_quality">
+	<section class="posts_quality">
 		<div class="container">
 			<div class="row">
 				<?php 
@@ -170,6 +153,7 @@
 			</div>
 		</div>
 	</section>
+
 	<section class="posts_block">
 		<div class="container">
 			<div class="lat_block">LATEST BLOG</div>
@@ -231,6 +215,10 @@
 			</div>
 		</div>	
 	</section>
+
 <?php get_footer(); ?>
+
+
+
 
 

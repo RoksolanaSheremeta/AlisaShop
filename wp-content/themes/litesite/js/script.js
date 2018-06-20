@@ -13,5 +13,12 @@ $(document).ready(function () {
 	    jQuery('#menu').removeClass('active');
 	});
 
+	/*---Swiper---*/
+	var swiper = new Swiper('.swiper-container_h', {
+	  pagination: {
+	    el: '.swiper-pagination_h',
+	  },
+	});
+
 });
 

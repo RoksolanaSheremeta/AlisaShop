@@ -8,7 +8,7 @@
 ?>
 <?php get_header(); ?>
 
-<div class="content-wrap page-wrap page">
+<div class="content-wrap page-wrap page-template">
 
 <div class="wrap">
 	<div class="container">

@@ -32,7 +32,7 @@
     	<div class="container">
 			<div class="top_header_block">
 				<div class="row">
-					<div class="col-sm-6 vertical_m blocl_flex">
+					<div class="col-sm-6 vertical_m block_flex">
 						<?php 
 						$posts = get_field('h_left_page', 'options');
 						if( $posts ): ?>
@@ -44,7 +44,7 @@
 						<?php endif; ?>
 						<?php pll_the_languages( array( 'dropdown' => 1 ) ); ?>
 					</div>
-					<div class="col-sm-6 exit_registr blocl_flex">
+					<div class="col-sm-6 exit_registr block_flex">
 						<?php 
 						$posts = get_field('h_right_page', 'options');
 						if( $posts ): ?>
@@ -70,7 +70,7 @@
 					</div>
 					<!-- Logo Ends -->
 					<div class="col-xl-8">
-						<div class="phone_info blocl_flex">
+						<div class="phone_info block_flex">
 							<?php 
 							if( have_rows('h_phone_numbers', 'options') ):
 								while ( have_rows('h_phone_numbers' ,'options') ) : the_row();?>

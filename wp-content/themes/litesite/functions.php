@@ -89,7 +89,7 @@ function litesite_scripts() {
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'popper', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', 'popper', '1.0.0', true );
     wp_enqueue_script( 'bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', 'bootstrap', '1.0.0', true );
-    //wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.min.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.min.js', array(), '1.0.0', true );
     //wp_enqueue_script( 'google map', '//maps.googleapis.com/maps/api/js?key=AIzaSyAfdgfBPYr0FiZt5LnUn817xvn8ymOYcyg', 'map', '1.0.0', true );
     wp_enqueue_script( 'script', get_template_directory_uri() . '/js/script.js', array(), '1.0.0', true );
 
@@ -302,3 +302,24 @@ add_action('acf/init', 'my_acf_init');*/
 /*-------------------------------------- end google map API ----------------------------------------*/
 /*--------------------------------------------------------------------------------------------------*/
 
+
+
+
+
+
+
+add_shortcode( 'wpv-post-wooimage', 'wpv_wooimage');
+function wpv_wooimage(){
+    // verify that this is a product category page
+    if (is_product_category()){
+        global $wp_query;
+        // get the query object
+        $cat = $wp_query->get_queried_object();
+        // get the thumbnail id user the term_id
+        $thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true ); 
+        // get the image URL
+        $image = wp_get_attachment_url( $thumbnail_id ); 
+        // print the IMG HTML
+        echo '<img src="'.$image.'" alt="" width="762" height="365" />';
+    }
+}
