@@ -20,5 +20,17 @@ $(document).ready(function () {
 	  },
 	});
 
+	/*---width < 1200 add active class category---*/
+	if($(window).width() < 1200){
+		$('#h_category .title').click(function () {
+	        $('#h_category .title').not($(this).parent()).removeClass('active');
+	        $(this).parent().toggleClass('active');
+		});
+
+		$('#h_category .block-category-li').on("click", function(){
+			$(this).toggleClass('active');
+		});
+	}
+
 });
 

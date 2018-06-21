@@ -376,9 +376,7 @@ section.menu{
 	}
 }
 @media only screen and (max-width : 767px){
-	span{
-	}
-	div.phone_info.blocl_flex{
+	div.phone_info.block_flex{
 		display: none;
 	}
 	div.col-xl-1.shopping-cart{
@@ -391,10 +389,10 @@ section.menu{
 	}
 }
 @media only screen and (max-width : 575px){
-	div.col-sm-6.vertical_m.blocl_flex{
+	div.col-sm-6.vertical_m.block_flex{
 		justify-content: space-around;
 	}
-	div.col-sm-6.exit_registr.blocl_flex{
+	div.col-sm-6.exit_registr.block_flex{
 		justify-content: center;
 	}
 	header .top_header_block .SumoSelect{

@@ -164,7 +164,7 @@
 						'posts_per_page' => 6,
 						'post_status' => 'publish',
 					    'orderby' => 'publish_date',
-					    'order' => 'ASC',
+					    'order' => 'DEC',
 					);
 					$query = new WP_Query( $args );
 
