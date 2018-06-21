@@ -78,8 +78,8 @@
 										$image = wp_get_attachment_url( $thumbnail_id ); 
 										//echo  $sub_category->name ;
 										echo '<li  class = "block-sub-category-li ' . $cat->slug . '-' . $sub_category->slug . '">';
-													echo "<img src='{$image}' alt='' width='20' height='20' />";
-													echo '<a href="'. get_term_link($sub_category->slug, 'product_cat') .'">'. $sub_category->name .'</a>';
+													//echo "<img src='{$image}' alt='' width='20' height='20' />";
+													echo '<a href="'. get_term_link($sub_category->slug, 'product_cat') .'"> - '. $sub_category->name .'</a>';
 													?>
 												</li>
 										<?php
