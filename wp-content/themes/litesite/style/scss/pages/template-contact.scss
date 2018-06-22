@@ -1,0 +1,17 @@
+.tpl_contact{
+	max-width: 100%;
+	padding-top: 40px;
+	.row{
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	.main_contant{
+		width: 50%;
+		padding: 0 2% 0 0;
+	}
+	.write_contact{
+		width: 50%;
+	}
+	
+}

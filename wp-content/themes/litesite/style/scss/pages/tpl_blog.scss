@@ -131,6 +131,12 @@
 			line-height: 25px;
 			margin-bottom: 20px;
 		}
+		.tagcloud{
+	    	width: 136px;
+			height: 36px;
+			border-radius: 2px;
+			border: 1px solid #cccccc;
+		}
 	}
 
 	.wrapper-pagination{
@@ -157,29 +163,26 @@
 			margin: 0 5px;
 		}
 		.current{
-			color: #fff;
-			background: #000;
-			display: inline-block;
-			transition: 300ms;
+			color: #999999;
+			font-family: "Gotham Pro";
+			font-size: 18px;
+			font-weight: 700;
+			line-height: 20px;
+			text-align: center;
 		}
 		a{
-			color: #000;
+			
 			border: none !important;
-			background: #e1e1e1;
 			font-family: inherit;
-			min-width: 30px;
-			height: 30px;
-			line-height: 30px;
 			padding: 0 0 !important;
 			display: inline-block;
-			font-size: 12px;
 			float: left;
 			margin: 0 5px;
-			&:hover{
-				border: none;
-				background: #000;
-				color: #fff;
-			}
+			color: #999999;
+			font-family: "Gotham Pro";
+			font-size: 18px;
+			font-weight: 700;
+			line-height: 20px;
 		}
 		.next, .prev{
 
